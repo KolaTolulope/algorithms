@@ -1,24 +1,27 @@
 // 'use strict'
 
-const convertFahrToCelsius = (fahrenheit) => {
-  let numToConvert = +fahrenheit
+const convertFahrToCelsius = (fahr) => {
+  let fahrenheit = +fahr
 
-  if (isNaN(numToConvert)) {
-    return `${fahrenheit} is not a valid number but a/an ${typeof fahrenheit}`
+  if (isNaN(fahrenheit)) {
+    return `${fahr} is not a valid number but a/an ${typeof fahr}`
   }
 
-  return (fahrenheit - 32) * (5 / 9)
+  return ((fahrenheit - 32) * (5 / 9)).toFixed(4)
 }
 
-console.log(convertFahrToCelsius(5))
+console.log(convertFahrToCelsius(0))
 console.log(convertFahrToCelsius('3'))
+console.log(convertFahrToCelsius(3))
+console.log(convertFahrToCelsius('3u'))
 console.log(convertFahrToCelsius([1, 2]))
 console.log(convertFahrToCelsius({ f: '8' }))
 
 const checkYuGiOh = (n) => {
-  let checkNum = +n
-  if (isNaN(checkNum)) {
-    return `invalid parameter: ${n} in meh`
+  let checkedNum = +n
+
+  if (isNaN(checkedNum)) {
+    return `invalid parameter: ${n}`
   }
   let result = []
   for (let i = 1; i < n; i++) {
