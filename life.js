@@ -4,13 +4,15 @@ const convertFahrToCelsius = (fahr) => {
   let fahrenheit = +fahr
 
   if (isNaN(fahrenheit)) {
-    return `${fahr} is not a valid number but a/an ${typeof fahr}`
+    return `${JSON.stringify(
+      fahr
+    )} is not a valid number but a/an ${typeof fahr}`
   }
 
   return ((fahrenheit - 32) * (5 / 9)).toFixed(4)
 }
 
-console.log(convertFahrToCelsius(0))
+console.log(convertFahrToCelsius(NaN))
 console.log(convertFahrToCelsius('3'))
 console.log(convertFahrToCelsius(3))
 console.log(convertFahrToCelsius('3u'))
@@ -21,7 +23,7 @@ const checkYuGiOh = (n) => {
   let checkedNum = +n
 
   if (isNaN(checkedNum)) {
-    return `invalid parameter: ${n}`
+    return `invalid parameter: ${JSON.stringify(n)}`
   }
   let result = []
   for (let i = 1; i < n; i++) {
